@@ -3,11 +3,7 @@ html,
         .content {
             height: 100%;
             width: 100%;
-        }
-
-        .content {
             display: table;
-            width: 100%;
             padding: 0 0 0 0;
             box-sizing: border-box;
         }
@@ -39,9 +35,8 @@ html,
         }
 
         .vert-center {
-            display: flex;
             position: absolute;
-            top: 50%;
+            padding-top: 50%;
             transform: translateY(-50%);
         }
 
