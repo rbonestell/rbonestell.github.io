@@ -28,44 +28,124 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Bobby Bonestell",
+          "url": "https://rbonestell.com/",
+          "image": "https://www.gravatar.com/avatar/fa08a07ba7197708dda9ed476e9a1531?s=200",
+          "sameAs": [
+            "https://linkedin.com/in/rbonestell",
+            "https://github.com/rbonestell",
+            "https://stackoverflow.com/users/623487/rbonestell"
+          ],
+          "jobTitle": "Director of Software Engineering",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Preczn"
+          },
+          "description": "Modernizing the fintech technical landscape."
+        }
+    </script>
     <style>
         .glass-card {
             backdrop-filter: blur(16px) saturate(180%);
             background-color: rgba(17, 24, 39, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+        .eight-bit {
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            font-family: 'Press Start 2P';
+        }
+        .eight-bit img {
+            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            image-rendering: pixelated;
+            filter: contrast(150%) brightness(110%) grayscale(10%);
+            border-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+        }
+        .eight-bit .glass-card {
+            border-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+        }
+        .eight-bit a {
+            border: 4px solid #fff;
+            box-shadow: 4px 4px 0 #000;
+            transform: scale(1);
+            transition: all 0.1s ease;
+            position: relative;
+            top: 0;
+            left: 0;
+            border-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
+            border-top-right-radius: 0 !important;
+            padding: 12px !important;
+        }
+        .eight-bit a:hover {
+            box-shadow: 2px 2px 0 #000;
+            top: -3px;
+            left: -3px;
+        }
+        .eight-bit a:active {
+            box-shadow: 0 0 0 #000;
+            top: 0;
+            left: 0;
+        }
     </style>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Bobby Bonestell",
-      "url": "https://rbonestell.com/",
-      "image": "https://www.gravatar.com/avatar/fa08a07ba7197708dda9ed476e9a1531?s=200",
-      "sameAs": [
-        "https://linkedin.com/in/rbonestell",
-        "https://github.com/rbonestell",
-        "https://stackoverflow.com/users/623487/rbonestell"
-      ],
-      "jobTitle": "Director of Software Engineering",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Preczn"
-      },
-      "description": "Modernizing the fintech technical landscape."
-    }
+    <script>
+        const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+        let codeIndex = 0;
+    
+        document.addEventListener('keydown', (event) => {
+            if (event.keyCode === code[codeIndex]) {
+                codeIndex++;
+                if (codeIndex === code.length) {
+                    enable8BitMode();
+                    codeIndex = 0;
+                }
+            } else {
+                codeIndex = 0;
+            }
+        });
+    
+        function enable8BitMode() {
+            document.body.classList.add('eight-bit');
+            document.querySelectorAll('img').forEach(img => {
+                // Force browser to re-render the image
+                img.src = img.src + '?pixel=true';
+                // Add slight zoom effect
+                setTimeout(() => {
+                    img.style.transform = 'scale(1)';
+                    img.style.transition = 'transform 0.3s ease-out';
+                }, 100);
+            });
+        }
     </script>
 </head>
 
-<body
-    class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen flex items-center justify-center p-8">
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 min-h-screen flex items-center justify-center p-8">
     <div
         class="max-w-2xl w-full glass-card rounded-2xl shadow-2xl shadow-blue-900/50 p-10 flex flex-col items-center sm:flex-row sm:items-start backdrop-blur-lg">
-        <img class="w-40 h-40 rounded-2xl sm:mr-8 mb-6 sm:mb-0 shadow-xl transform transition-transform duration-500 hover:scale-105 border-4 border-blue-400"
+        <img class="w-40 h-40 rounded-2xl sm:mr-8 mb-6 sm:mb-0 shadow-md transform transition-transform duration-500 hover:scale-105 border-4 border-blue-400"
             src="https://www.gravatar.com/avatar/fa08a07ba7197708dda9ed476e9a1531?s=200" alt="Bobby Bonestell">
         <div class="text-center sm:text-left">
-            <h1 class="text-5xl font-black mb-3 tracking-tight text-white">BOBBY<br /><span
-                    class="text-blue-400">BONESTELL</span></h1>
+            <h1 class="text-5xl font-black mb-3 tracking-tight text-white">
+                BOBBY<br />
+                <span class="text-blue-400">BONESTELL</span>
+            </h1>
             <h2 class="text-xl text-gray-300 mb-3 font-medium">Software Engineering — Fintech & Payments</h2>
             <p class="text-gray-300 mb-6 font-light">Modernizing the fintech technical landscape.</p>
             <div class="grid grid-cols-3 gap-6 mt-4">
