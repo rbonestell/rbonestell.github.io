@@ -26,6 +26,7 @@
     <link rel="shortcut icon" sizes="196x196" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/retroify.js/out/retroify.min.js"></script>
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -55,55 +56,6 @@
             background-color: rgba(17, 24, 39, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .eight-bit {
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-            font-family: 'Press Start 2P';
-        }
-        .eight-bit img {
-            box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.5);
-            transform: scale(0.95);
-            image-rendering: pixelated;
-            filter: contrast(150%) brightness(110%) grayscale(10%);
-            border-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-        }
-        .eight-bit .glass-card {
-            border-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-        }
-        .eight-bit a {
-            border: 4px solid #fff;
-            box-shadow: 4px 4px 0 #000;
-            transform: scale(1);
-            transition: all 0.1s ease;
-            position: relative;
-            top: 0;
-            left: 0;
-            border-radius: 0 !important;
-            border-bottom-left-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-            border-top-left-radius: 0 !important;
-            border-top-right-radius: 0 !important;
-            padding: 12px !important;
-        }
-        .eight-bit a:hover {
-            box-shadow: 2px 2px 0 #000;
-            top: -3px;
-            left: -3px;
-        }
-        .eight-bit a:active {
-            box-shadow: 0 0 0 #000;
-            top: 0;
-            left: 0;
-        }
     </style>
     <script>
         const code = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
@@ -122,16 +74,7 @@
         });
     
         function enable8BitMode() {
-            document.body.classList.add('eight-bit');
-            document.querySelectorAll('img').forEach(img => {
-                // Force browser to re-render the image
-                img.src = img.src + '?pixel=true';
-                // Add slight zoom effect
-                setTimeout(() => {
-                    img.style.transform = 'scale(1)';
-                    img.style.transition = 'transform 0.3s ease-out';
-                }, 100);
-            });
+            retroify.toggle();
         }
     </script>
 </head>
